@@ -495,6 +495,7 @@ void Maze_generate(int max_x, int max_y, int tab[100][100]){
 int round = 1;
 int i;
 int j;
+int g =1;
 int x=10;
 int y=10;
 int strona;
@@ -514,10 +515,10 @@ for (round; round <100; round++){
 strona = rand() % 3 +1;
 switch (strona){
 
-case 1:  if (i == 0 || i == 1 ||tab[i-1][j] == 0||tab[i-2][j] == 0)  strona++;  else {i=i-1; tab[i][j] = 0; i=i-1; tab[i][j] = 0; break;};						   // left
-case 2:	 if (i == (max_x+1) || i == max_x ||tab[i+1][j] == 0||tab[i+2][j] == 0 )	strona++; else {i=i+1; tab[i][j] = 0; i=i+1; tab[i][j] = 0;break;};			 // right
-case 3:  if (j == 0 || j == 1 || tab[i][j-1] == 0||tab[i][j-2] == 0)	strona++; else {j=j-1; tab[i][j] = 0; j=j-1; tab[i][j] = 0; break;};						 // up
-case 4:  if (j == (max_y+1) || j == max_y || tab[i][j+1] == 0||tab[i][j+2] == 0)	strona=1; else {j=j+1; tab[i][j] = 0; j=j+1; tab[i][j] = 0; break;};			 // down
+case 1:  if (i == 1 || i == 2 ||tab[i-1][j] == 0||tab[i-2][j] == 0)  {strona++; g++;}     else if(g<5) {i=i-1; tab[i][j] = 0; i=i-1; tab[i][j] = 0; g=0;break;} else {};						   // left
+case 2:	 if (i == (max_x+1) || i == max_x ||tab[i+1][j] == 0||tab[i+2][j] == 0 )	{strona++; g++;}   else if(g<5) {i=i+1; tab[i][j] = 0; i=i+1; tab[i][j] = 0; g=0;break;}else {};			 // right
+case 3:  if (j == 1 || j == 2 || tab[i][j-1] == 0||tab[i][j-2] == 0)	{strona++; g++;}    else if(g<5) {j=j-1; tab[i][j] = 0; j=j-1; tab[i][j] = 0; g=0;break;}else {};						 // up
+case 4:  if (j == (max_y+1) || j == max_y || tab[i][j+1] == 0||tab[i][j+2] == 0)	{strona=1; g++;}    else if(g<5) {j=j+1; tab[i][j] = 0; j=j+1; tab[i][j] = 0; g=0; break;}else {};			 // down
 }
 }
 }
