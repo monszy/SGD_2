@@ -1,0 +1,17 @@
+﻿Build started 1/4/2012 4:03:08 PM.
+     1>Project "C:\Documents and Settings\Szymon\Pulpit\test\test\test.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\Projekt_2.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+         test.vcxproj -> C:\Documents and Settings\Szymon\Pulpit\test\Debug\Projekt_2.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\Projekt_2.unsuccessfulbuild".
+         Touching "Debug\Projekt_2.lastbuildstate".
+     1>Done Building Project "C:\Documents and Settings\Szymon\Pulpit\test\test\test.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.39
