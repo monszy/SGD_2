@@ -1,4 +1,4 @@
-﻿Build started 1/4/2012 5:17:58 PM.
+﻿Build started 1/4/2012 6:28:02 PM.
      1>Project "C:\Documents and Settings\Szymon\Pulpit\test\test\test.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Projekt_2.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -14,4 +14,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.10
+Time Elapsed 00:00:00.07
