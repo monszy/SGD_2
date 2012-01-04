@@ -31,10 +31,11 @@ const int CLIP_QUITGAME_PRESSED = 5;
 
 bool show_menu = false;
 bool show_maze = false;
-
+bool Border_show_maze = false;
 
 //The surfaces
 SDL_Surface *wallBlock = NULL;
+SDL_Surface *wallBlockBLACK = NULL;
 SDL_Surface *message = NULL;
 SDL_Surface *MenuOptionsButtonsSheet = NULL;
 SDL_Surface *background = NULL;
@@ -181,7 +182,14 @@ if( background == NULL )
         return false;
     }
 
-wallBlock = load_image( "wallBlock.png" );
+wallBlockBLACK = load_image( "wallBlockBLACK.png" );
+
+if( wallBlockBLACK == NULL )
+    {
+        return false;
+    }
+
+wallBlock= load_image( "wallBlock.png" );
 
 if( wallBlock == NULL )
     {
@@ -214,6 +222,7 @@ void clean_up()
 {
     //Free the surface
 SDL_FreeSurface( wallBlock );
+SDL_FreeSurface( wallBlockBLACK );
 SDL_FreeSurface( message );
     SDL_FreeSurface( MenuOptionsButtonsSheet );
 SDL_FreeSurface( background );
@@ -436,7 +445,17 @@ apply_surface( x, y, wallBlock, screen );
   
 }
 }
+void Border_Maze_show(int x, int y)
+{
+if ( Border_show_maze == true )
+    {
+  
+//apply_surface( 0, 0, background, screen );
+apply_surface( x, y, wallBlockBLACK, screen );
 
+  
+}
+}
 void Maze_print(int max_x, int max_y, int tab[100][100]){
 	
 int x=10;
@@ -446,6 +465,18 @@ int y=10;
 for (int j=1; j<=max_y;j++){
 y=y+11;
 if (tab[i][j]==1) Maze_show(x, y);
+}
+}
+}
+void Border_Maze_print(int max_x, int max_y, int tab[100][100]){
+	
+int x=0;
+for (int i=0; i<=(max_x+1); i++){
+x=x+11;
+int y=0;
+for (int j=0; j<=(max_y+1);j++){
+y=y+11;
+Border_Maze_show(x, y);
 }
 }
 }
@@ -460,8 +491,10 @@ for (j=1; j<=max_y;j++){
 tab[i][j] = 1;
 }
 }
-i = rand() % max_x +2;
-j = rand() % max_y +2;
+max_x=max_x-1;
+max_y=max_y-1;
+i = rand() % max_x +1;
+j = rand() % max_y +1;
 tab[i][j] = 0;
 }
 
@@ -528,6 +561,7 @@ if( ( x > 254 ) && ( x < 390 ) && ( y > 229 ) && ( y < 251 ) )
 //Set the button sprite
 show_menu = true;
 show_maze = true;
+Border_show_maze = true;
 }
 if( ( x > 254 ) && ( x < 390 ) && ( y > 255 ) && ( y < 272 ) )
 {
@@ -558,7 +592,7 @@ message = TTF_RenderText_Solid( font, "Lorem ipsum dolor", textColor );
 QuitGameBtn.showQuitGame();
 Menu_show();
 Maze_print(max_x, max_y, tab);
-
+Border_Maze_print(max_x, max_y, tab);
 /*
 int x = 10, y = 10, c=1, size=20;
 Maze_show(x, y);
