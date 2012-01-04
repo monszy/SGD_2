@@ -469,15 +469,25 @@ if (tab[i][j]==1) Maze_show(x, y);
 }
 }
 void Border_Maze_print(int max_x, int max_y, int tab[100][100]){
-	
-int x=0;
-for (int i=0; i<=(max_x+1); i++){
+int y=10;	
+int x=10;
+Border_Maze_show(x, y);
+for (int i=0; i<=(max_x); i++){
 x=x+11;
-int y=0;
-for (int j=0; j<=(max_y+1);j++){
+Border_Maze_show(x, y);
+}
+for (int j=0; j<=(max_y);j++){
 y=y+11;
 Border_Maze_show(x, y);
 }
+y=10; x=10;
+for (int j=0; j<=(max_y);j++){
+y=y+11;
+Border_Maze_show(x, y);
+}
+for (int i=0; i<=(max_x); i++){
+x=x+11;
+Border_Maze_show(x, y);
 }
 }
 
